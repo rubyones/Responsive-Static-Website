@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #444; /* Text color */
+            background-color: #f4f4f4; /* Background color */
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        nav ul li a:hover {
+            color: #ffc107; /* Yellow hover color */
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+            width: 100%;
+        }
+
+        .resume-section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            background-color: #fff; /* White background */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+            padding: 30px; /* Increase padding */
+        }
+
+        .resume-section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .resume-section h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333; /* Text color */
+        }
+
+        .resume-details {
+            color: #555; /* Text color */
+        }
+
+        .resume-details p {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .resume-image {
+            margin: 20px auto;
+            max-width: 200px;
+            display: block;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .resume-image:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: 30px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Resume</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <img src="resume pic.jpg" alt="Your Name" class="resume-image">
+        <section class="resume-section">
+            <h2>Personal Information</h2>
+            <div class="resume-details">
+                <p><strong>Name:</strong> Ruby Grace Oñes</p>
+                <p><strong>Age:</strong> 20 years old</p>
+                <p><strong>Contact Number:</strong> 09460474976</p>
+                <p><strong>Email:</strong> ruby.ones@jmc.edu.ph</p>
+                <p><strong>Address:</strong> Purok Aquarius, Lasang, Davao City</p>
+            </div>
+        </section>
+        <section class="resume-section">
+            <h2>Education</h2>
+            <div class="resume-details">
+                <p><strong>University:</strong> Jose Maria College of Davao</p>
+                <p><strong>Degree:</strong> 1st year College, Bachelor of Science in Information Technology</p>
+            </div>
+        </section>
+        <section class="resume-section">
+            <h2>Skills</h2>
+            <div class="resume-details">
+                <p><strong>Technical Skills:</strong> HTML, CSS, JavaScript</p>
+                <p><strong>Soft Skills:</strong> Adaptability, Teamwork, Critical Thinking</p>
+            </div>
+        </section>
+        <section class="resume-section">
+            <h2>Certifications</h2>
+            <div class="resume-details">
+                <p><strong>Best in Research:</strong> 2023</p>
+                <p><strong>Consistent Honors since Elementary</strong></p>
+                <p><strong>Best in CSS</strong></p>
+                <p><strong>Web Developer Certification</strong></p>
+                <p><strong>Responsive Web Design Certification</strong></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Ruby Grace Portfolio. All rights reserved.</p>
+    </footer>
+    <script>
+        // Animation
+        window.addEventListener('DOMContentLoaded', () => {
+            const resumeSections = document.querySelectorAll('.resume-section');
+            resumeSections.forEach(section => {
+                if (isElementInViewport(section)) {
+                    section.classList.add('animate');
+                }
+            });
+            window.addEventListener('scroll', () => {
+                resumeSections.forEach(section => {
+                    if (isElementInViewport(section)) {
+                        section.classList.add('animate');
+                    }
+                });
+            });
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+        });
+    </script>
+</body>
+</html>

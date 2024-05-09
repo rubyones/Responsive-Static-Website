@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add your styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333; /* Text color */
+            background-color: #f9f9f9; /* Background color */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffc107; /* Change color on hover */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .faq-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .question {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .answer {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 2px solid #eee;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="faq-item">
+            <h2 class="question">1. What services do you offer?</h2>
+            <p class="answer">We offer a range of services including web development, software development, IT consulting, network administration, and database management.</p>
+        </section>
+        <section class="faq-item">
+            <h2 class="question">2. How can I contact your support team?</h2>
+            <p class="answer">You can contact our support team by phone, email, or through the contact form on our website.</p>
+        </section>
+        <section class="faq-item">
+            <h2 class="question">3. Do you provide ongoing maintenance for websites?</h2>
+            <p class="answer">Yes, we offer ongoing maintenance services to ensure your website remains up-to-date and secure.</p>
+        </section>
+        <section class="faq-item">
+            <h2 class="question">4. What is your approach to cybersecurity?</h2>
+            <p class="answer">We take a proactive approach to cybersecurity, implementing measures to prevent cyber threats and regularly monitoring for any suspicious activity.</p>
+        </section>
+        <section class="faq-item">
+            <h2 class="question">5. Can you help with data migration to the cloud?</h2>
+            <p class="answer">Yes, we provide data migration services to help businesses transition their data to the cloud securely and efficiently.</p>
+        </section>
+        <!-- Add more FAQ items here -->
+    </main>
+    <footer>
+        <p>&copy; 2024 Ruby Grace Portfolio. All rights reserved.</p>
+    </footer>
+    <script>
+        // Animation
+        window.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                if (isElementInViewport(item)) {
+                    item.classList.add('animate');
+                }
+            });
+            window.addEventListener('scroll', () => {
+                faqItems.forEach(item => {
+                    if (isElementInViewport(item)) {
+                        item.classList.add('animate');
+                    }
+                });
+            });
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+        });
+    </script>
+</body>
+</html>
